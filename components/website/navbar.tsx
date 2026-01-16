@@ -76,9 +76,11 @@ const Navbar = () => {
 
           {/* Desktop CTA - Right */}
           <div className="hidden md:flex items-center space-x-4">
+            <Link href={"/getquote"}>
             <Button className="bg-primary hover:bg-primary/90">
               Get Quote
             </Button>
+            </Link>
             <ModeToggle />
           </div>
 

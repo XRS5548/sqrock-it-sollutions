@@ -202,7 +202,7 @@ const AboutPage = () => {
                       <span className="text-5xl font-bold text-white">SQ</span>
                     </div>
                     <h3 className="text-2xl font-bold mb-2">Building Digital Futures</h3>
-                    <p className="text-muted-foreground">Since 2020</p>
+                    <p className="text-muted-foreground">Since 2025</p>
                   </div>
                 </div>
                 <div className="absolute -top-8 -right-8 w-64 h-64 bg-gradient-to-bl from-primary/5 to-transparent rounded-full" />

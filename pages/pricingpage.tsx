@@ -2,18 +2,21 @@
 
 import { useState, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
-import { Check, Star, Zap, Clock, HelpCircle } from "lucide-react";
+import { Check, Star, Zap, Clock, HelpCircle, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useTheme } from "next-themes";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const PricingPage = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
+  const router = useRouter();
 
   const pricingPlans = [
     {
@@ -29,6 +32,7 @@ const PricingPage = () => {
         "Social Media Links",
         "1 Month Free Hosting",
       ],
+      href: "/get-started",
       buttonText: "Get Started",
       buttonVariant: "outline" as const,
       popular: false,
@@ -40,6 +44,7 @@ const PricingPage = () => {
       title: "Business Website",
       price: "Starting from ₹9,999",
       description: "Ideal for growing businesses",
+      href: "/getquote",
       features: [
         "5–7 Pages Website",
         "Custom Admin Panel",
@@ -50,7 +55,7 @@ const PricingPage = () => {
         "Google Analytics Integration",
         "Speed Optimization",
       ],
-      buttonText: "Choose Plan",
+      buttonText: "Get Quote",
       buttonVariant: "default" as const,
       popular: true,
       icon: <Zap className="h-5 w-5" />,
@@ -61,6 +66,7 @@ const PricingPage = () => {
       title: "Web App / Software",
       price: "Starting from ₹19,999",
       description: "Custom solutions for complex needs",
+      href: "/getquote",
       features: [
         "Custom Dashboard Design",
         "Authentication System",
@@ -84,6 +90,11 @@ const PricingPage = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Handle navigation
+  const handleNavigate = (href: string) => {
+    router.push(href);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -120,42 +131,42 @@ const PricingPage = () => {
 
   const getColorClasses = (color: string) => {
     if (!mounted) return "";
-    
+
     const isDark = theme === "dark";
-    
+
     const darkColors: Record<string, string> = {
       blue: "from-blue-500/10 to-blue-600/10 border-blue-500/20",
       purple: "from-purple-500/10 to-purple-600/10 border-purple-500/20",
       green: "from-green-500/10 to-emerald-600/10 border-green-500/20",
     };
-    
+
     const lightColors: Record<string, string> = {
       blue: "from-blue-100 to-blue-50 border-blue-200",
       purple: "from-purple-100 to-purple-50 border-purple-200",
       green: "from-green-100 to-emerald-50 border-green-200",
     };
-    
+
     const colors = isDark ? darkColors : lightColors;
     return colors[color] || colors.blue;
   };
 
   const getPopularColorClasses = (color: string) => {
     if (!mounted) return "";
-    
+
     const isDark = theme === "dark";
-    
+
     const darkColors: Record<string, string> = {
       blue: "bg-blue-500/20 text-blue-300 border-blue-500/30",
       purple: "bg-purple-500/20 text-purple-300 border-purple-500/30",
       green: "bg-green-500/20 text-green-300 border-green-500/30",
     };
-    
+
     const lightColors: Record<string, string> = {
       blue: "bg-blue-100 text-blue-700 border-blue-200",
       purple: "bg-purple-100 text-purple-700 border-purple-200",
       green: "bg-green-100 text-green-700 border-green-200",
     };
-    
+
     const colors = isDark ? darkColors : lightColors;
     return colors[color] || colors.purple;
   };
@@ -177,8 +188,8 @@ const PricingPage = () => {
 
   const getBackgroundGradient = () => {
     if (!mounted) return "from-gray-50 to-white";
-    return theme === "dark" 
-      ? "from-gray-900 to-black" 
+    return theme === "dark"
+      ? "from-gray-900 to-black"
       : "from-gray-50 to-white";
   };
 
@@ -196,29 +207,29 @@ const PricingPage = () => {
 
   const getIconBgColor = (color: string) => {
     if (!mounted) return "bg-blue-100";
-    
+
     const isDark = theme === "dark";
-    
+
     const colors: Record<string, string> = {
       blue: isDark ? "bg-blue-500/20" : "bg-blue-100",
       purple: isDark ? "bg-purple-500/20" : "bg-purple-100",
       green: isDark ? "bg-green-500/20" : "bg-green-100",
     };
-    
+
     return colors[color] || colors.blue;
   };
 
   const getIconColor = (color: string) => {
     if (!mounted) return "text-blue-600";
-    
+
     const isDark = theme === "dark";
-    
+
     const colors: Record<string, string> = {
       blue: isDark ? "text-blue-400" : "text-blue-600",
       purple: isDark ? "text-purple-400" : "text-purple-600",
       green: isDark ? "text-green-400" : "text-green-600",
     };
-    
+
     return colors[color] || colors.blue;
   };
 
@@ -248,18 +259,18 @@ const PricingPage = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <Badge 
-            variant="outline" 
+          <Badge
+            variant="outline"
             className={`mb-4 px-4 py-1.5 ${getHeroBadgeClasses()}`}
           >
             <Clock className="h-3 w-3 mr-2" />
             Limited Time Offers
           </Badge>
-          
+
           <h1 className={`text-3xl md:text-5xl font-bold bg-gradient-to-r ${getHeroTextGradient()} bg-clip-text text-transparent mb-4`}>
             Latest Offers – Affordable IT Solutions
           </h1>
-          
+
           <p className={`text-lg md:text-xl ${getMutedTextColor()} max-w-2xl mx-auto mb-8`}>
             Premium quality services at startup-friendly prices. Transform your digital presence without breaking the bank.
           </p>
@@ -279,7 +290,7 @@ const PricingPage = () => {
               whileHover="hover"
               onMouseEnter={() => setHoveredCard(plan.id)}
               onMouseLeave={() => setHoveredCard(null)}
-              className="relative"
+              className="relative group"
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
@@ -289,22 +300,25 @@ const PricingPage = () => {
                 </div>
               )}
 
-              <Card className={`h-full bg-gradient-to-b ${getColorClasses(plan.color)} backdrop-blur-sm border relative overflow-hidden group`}>
+              <Card 
+                className={`h-full bg-gradient-to-b ${getColorClasses(plan.color)} backdrop-blur-sm border relative overflow-hidden cursor-pointer`}
+                onClick={() => handleNavigate(plan.href)}
+              >
                 {/* Animated background glow */}
                 <motion.div
                   className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
                   initial={false}
                   animate={{
-                    background: hoveredCard === plan.id 
+                    background: hoveredCard === plan.id
                       ? `radial-gradient(circle at center, var(--tw-gradient-stops))`
                       : "none",
                   }}
                   style={{
-                    '--tw-gradient-stops': plan.color === 'blue' 
+                    '--tw-gradient-stops': plan.color === 'blue'
                       ? (theme === 'dark' ? 'rgba(59, 130, 246, 0.3)' : 'rgba(59, 130, 246, 0.1)')
                       : plan.color === 'purple'
-                      ? (theme === 'dark' ? 'rgba(147, 51, 234, 0.3)' : 'rgba(147, 51, 234, 0.1)')
-                      : (theme === 'dark' ? 'rgba(34, 197, 94, 0.3)' : 'rgba(34, 197, 94, 0.1)'),
+                        ? (theme === 'dark' ? 'rgba(147, 51, 234, 0.3)' : 'rgba(147, 51, 234, 0.1)')
+                        : (theme === 'dark' ? 'rgba(34, 197, 94, 0.3)' : 'rgba(34, 197, 94, 0.1)'),
                   } as React.CSSProperties}
                 />
 
@@ -354,14 +368,17 @@ const PricingPage = () => {
 
                 <CardFooter className="pt-6">
                   <Button
+                    asChild
                     variant={plan.buttonVariant}
-                    className={`w-full py-6 text-base font-semibold ${
-                      plan.popular
+                    className={`w-full py-6 text-base font-semibold group/btn ${plan.popular
                         ? "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white"
                         : ""
-                    }`}
+                      }`}
                   >
-                    {plan.buttonText}
+                    <Link href={plan.href} className="flex items-center justify-center">
+                      {plan.buttonText}
+                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
                   </Button>
                 </CardFooter>
               </Card>
@@ -374,9 +391,8 @@ const PricingPage = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className={`bg-gradient-to-r ${getCardBackgroundGradient()} backdrop-blur-sm rounded-2xl p-6 md:p-8 border ${
-            theme === "dark" ? "border-gray-700/50" : "border-gray-200"
-          }`}
+          className={`bg-gradient-to-r ${getCardBackgroundGradient()} backdrop-blur-sm rounded-2xl p-6 md:p-8 border ${theme === "dark" ? "border-gray-700/50" : "border-gray-200"
+            }`}
         >
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -385,7 +401,7 @@ const PricingPage = () => {
                   Need a custom solution?
                 </h3>
                 <p className={`${getMutedTextColor()} mb-4`}>
-                  Final pricing may vary based on specific requirements, features, and complexity. 
+                  Final pricing may vary based on specific requirements, features, and complexity.
                   Contact us for a personalized quote tailored to your business needs.
                 </p>
                 <div className={`flex items-center text-sm ${getSubTextColor()}`}>
@@ -430,8 +446,13 @@ const PricingPage = () => {
                   </DialogContent>
                 </Dialog>
 
-                <Button className="px-8 py-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white">
-                  Schedule Consultation
+                <Button 
+                  asChild
+                  className="px-8 py-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white"
+                >
+                  <Link href="/getquote">
+                    Schedule Consultation
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -468,9 +489,9 @@ const PricingPage = () => {
           </p>
           <p className="mt-2">
             Need help choosing?{" "}
-            <a href="#" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">
+            <Link href="/get-started" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">
               Compare all features
-            </a>
+            </Link>
           </p>
         </motion.div>
       </div>

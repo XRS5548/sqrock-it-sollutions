@@ -22,7 +22,7 @@ export default function page() {
       <WhatWeBuildSection />
       <ClientExpectationsSection />
       <TechStackSection />
-      <ContactCTASection />
+      {/* <ContactCTASection /> */}
     </div>
   )
 }
