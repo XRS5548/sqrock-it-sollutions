@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { 
   CheckCircle, 
@@ -147,7 +147,7 @@ const ThankYouPage = () => {
           className="text-center mb-12"
         >
           <motion.div
-            variants={checkmarkVariants}
+            variants={checkmarkVariants as Variants}
             initial="initial"
             animate="animate"
             whileHover="hover"
@@ -198,7 +198,7 @@ const ThankYouPage = () => {
                     {nextSteps.map((step, index) => (
                       <motion.div
                         key={index}
-                        variants={itemVariants}
+                        variants={itemVariants as Variants}
                         className="flex items-start gap-4"
                       >
                         <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${
@@ -269,7 +269,7 @@ const ThankYouPage = () => {
               </Card>
 
               {/* Quick Actions Card */}
-              <motion.div variants={itemVariants}>
+              <motion.div variants={itemVariants as Variants}>
                 <Card className={`border-0 shadow-xl ${theme === 'dark' ? 'bg-gradient-to-r from-blue-900/20 to-purple-900/20 backdrop-blur-sm' : 'bg-gradient-to-r from-blue-50 to-purple-50'}`}>
                   <CardHeader>
                     <CardTitle className={`flex items-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { 
@@ -251,7 +251,7 @@ const GetStartedPage = () => {
           {steps.map((step) => (
             <motion.div
               key={step.id}
-              variants={cardVariants}
+              variants={cardVariants as Variants}
               whileHover="hover"
               onMouseEnter={() => setHoveredCard(step.id)}
               onMouseLeave={() => setHoveredCard(null)}
@@ -376,7 +376,7 @@ const GetStartedPage = () => {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                variants={itemVariants}
+                variants={itemVariants as Variants}
                 initial="hidden"
                 animate="visible"
                 transition={{ delay: index * 0.1 }}

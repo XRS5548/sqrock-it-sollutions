@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Zap, PhoneCall, Puzzle, Send, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -204,7 +204,7 @@ const ContactCTASection = () => {
         >
           {/* Left Content */}
           <div className="space-y-8">
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants as Variants}>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
                 Let&apos;s Build Something{" "}
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
@@ -220,7 +220,7 @@ const ContactCTASection = () => {
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
-                  variants={itemVariants}
+                  variants={itemVariants as Variants}
                   custom={index}
                   className="flex items-start gap-4 group"
                 >
@@ -246,7 +246,7 @@ const ContactCTASection = () => {
             </div>
 
             <motion.div
-              variants={itemVariants}
+              variants={itemVariants as Variants}
               className="pt-6 border-t border-border/50"
             >
               <p className="text-sm text-muted-foreground">
@@ -266,7 +266,7 @@ const ContactCTASection = () => {
           </div>
 
           {/* Right Form Card */}
-          <motion.div variants={cardVariants}>
+          <motion.div variants={cardVariants as Variants}>
             <Card className="relative bg-card/40 backdrop-blur-sm border border-border/50 overflow-hidden group">
               {/* Animated border effect */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/50 to-primary animate-gradient-x" />

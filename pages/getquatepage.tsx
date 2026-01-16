@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { 
   Send, 
@@ -284,7 +284,7 @@ const GetQuotePage = () => {
           {/* Main Form Card */}
           <div className="lg:col-span-2">
             <motion.div
-              variants={containerVariants}
+              variants={containerVariants as Variants}
               initial="hidden"
               animate="visible"
             >
@@ -319,7 +319,7 @@ const GetQuotePage = () => {
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
                       {/* Personal Information Section */}
-                      <motion.div variants={itemVariants} className="space-y-4">
+                      <motion.div variants={itemVariants as Variants} className="space-y-4">
                         <h3 className={`text-lg font-semibold flex items-center gap-2 ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
                           <User className="h-5 w-5 text-primary" />
                           Personal Information
@@ -388,7 +388,7 @@ const GetQuotePage = () => {
                       <Separator className={theme === 'dark' ? 'bg-gray-700' : 'bg-gray-200'} />
 
                       {/* Project Details Section */}
-                      <motion.div variants={itemVariants} className="space-y-4">
+                      <motion.div variants={itemVariants as Variants} className="space-y-4">
                         <h3 className={`text-lg font-semibold flex items-center gap-2 ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
                           <Briefcase className="h-5 w-5 text-primary" />
                           Project Details
@@ -471,7 +471,7 @@ const GetQuotePage = () => {
                         </div>
                       </motion.div>
 
-                      <motion.div variants={itemVariants}>
+                      <motion.div variants={itemVariants as Variants}>
                         <Button
                           type="submit"
                           className="w-full py-6 text-base font-semibold group"
