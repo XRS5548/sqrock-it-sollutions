@@ -94,20 +94,50 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      
-      // Reset form state after 3 seconds
-      setTimeout(() => setIsSubmitted(false), 3000);
-    }, 1500);
-  };
+  // In the ContactPage component, update the handleSubmit function:
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  
+  // Get form data from form elements or state
+  const form = e.currentTarget as HTMLFormElement;
+const formData = {
+  name: (form.querySelector('input[type="text"]') as HTMLInputElement)?.value || "",
+  email: (form.querySelector('input[type="email"]') as HTMLInputElement)?.value || "",
+  phone: (form.querySelector('input[type="tel"]') as HTMLInputElement)?.value || "",
+  service:
+    (form.querySelector('[data-select="service"]') as HTMLInputElement)?.value ||
+    "Other",
+  message:
+    (form.querySelector("textarea") as HTMLTextAreaElement)?.value || "",
+};
 
+  setIsSubmitting(true);
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok && data.success) {
+      setIsSubmitted(true);
+      // Reset form
+      form.currentTarget.reset();
+    } else {
+      throw new Error(data.message || 'Failed to submit contact form');
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    // Show error toast/message
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
