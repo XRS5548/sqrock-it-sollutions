@@ -320,7 +320,7 @@ const ServicesPage = () => {
                       <step.icon className="h-7 w-7 text-primary" />
                     </div>
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 -translate-y-full">
-                      <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
                         <span className="text-white font-bold">{step.step}</span>
                       </div>
                     </div>
@@ -348,7 +348,7 @@ const ServicesPage = () => {
                     <div className="w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center">
                       <step.icon className="h-5 w-5 text-primary" />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
                       <span className="text-white text-xs font-bold">{step.step}</span>
                     </div>
                   </div>

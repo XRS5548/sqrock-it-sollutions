@@ -2,17 +2,18 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { ModeToggle } from "../Togglemod";
 import { useTheme } from "next-themes";
 import Logo from "../logo";
 
 const Navbar = () => {
-  const theme = useTheme()
+  const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -23,13 +24,21 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-
+    setMounted(true);
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+    
     window.addEventListener("scroll", handleScroll);
+    
+    // Initial check
+    handleScroll();
+    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <header
@@ -44,13 +53,6 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex flex-col">
-              {/* <span className="text-xl font-bold tracking-tight text-primary">
-                SQROCK
-              </span>
-              <span className="text-xs text-muted-foreground tracking-wider">
-                IT SOLUTIONS
-              </span> */}
-
               <Logo />
             </Link>
           </div>
@@ -73,60 +75,71 @@ const Navbar = () => {
           </nav>
 
           {/* Desktop CTA - Right */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center space-x-4">
             <Button className="bg-primary hover:bg-primary/90">
               Get Quote
             </Button>
             <ModeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col h-full">
-                {/* Mobile Logo */}
-                <div className="pb-6 border-b">
-                  <div className="flex flex-col">
-                    <span className="text-2xl font-bold text-primary">
-                      SQROCK
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      IT SOLUTIONS
-                    </span>
+          {/* Mobile Menu */}
+          <div className="md:hidden flex items-center space-x-2">
+            <ModeToggle />
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-9 w-9">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
+                <div className="flex flex-col h-full">
+                  {/* Mobile Header */}
+                  <div className="px-6 py-4 border-b">
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-col">
+                        <Logo />
+                      </div>
+                      <SheetClose asChild>
+                        <Button variant="ghost" size="icon" className="h-9 w-9">
+                          <Menu className="h-5 w-5" />
+                          <span className="sr-only">Close menu</span>
+                        </Button>
+                      </SheetClose>
+                    </div>
+                  </div>
+
+                  {/* Mobile Navigation */}
+                  <nav className="flex-1 px-6 py-8">
+                    <ul className="space-y-4">
+                      {navItems.map((item) => (
+                        <li key={item.label}>
+                          <SheetClose asChild>
+                            <Link
+                              href={item.href}
+                              className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2 block"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {item.label}
+                            </Link>
+                          </SheetClose>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+
+                  {/* Mobile CTA */}
+                  <div className="px-6 py-6 border-t">
+                    <SheetClose asChild>
+                      <Button className="w-full bg-primary hover:bg-primary/90">
+                        Get Quote
+                      </Button>
+                    </SheetClose>
                   </div>
                 </div>
-
-                {/* Mobile Navigation */}
-                <nav className="flex-1 py-8">
-                  <ul className="space-y-6">
-                    {navItems.map((item) => (
-                      <li key={item.label}>
-                        <Link
-                          href={item.href}
-                          className="text-lg font-medium text-foreground hover:text-primary transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-
-                {/* Mobile CTA */}
-                <div className="pt-6 border-t">
-                  <Button className="w-full bg-primary hover:bg-primary/90">
-                    Get Quote
-                  </Button>
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
