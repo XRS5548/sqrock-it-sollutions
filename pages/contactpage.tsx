@@ -26,18 +26,18 @@ const contactInfo = [
   {
     id: 1,
     title: "Email",
-    content: "contact@sqrock.com",
+    content: "sqrock.business@outlook.com",
     icon: Mail,
     color: "from-blue-500 to-cyan-500",
-    href: "mailto:contact@sqrock.com",
+    href: "mailto:sqrock.business@outlook.com",
   },
   {
     id: 2,
     title: "Phone",
-    content: "+91 12345 67890",
+    content: "+91 63786 95548",
     icon: Phone,
     color: "from-green-500 to-emerald-500",
-    href: "tel:+911234567890",
+    href: "tel:+916378695548",
   },
   {
     id: 3,

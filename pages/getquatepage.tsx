@@ -567,10 +567,10 @@ const GetQuotePage = () => {
                         <div>
                           <p className="font-medium">Email</p>
                           <a 
-                            href="mailto:contact@sqrock.com" 
+                            href="mailto:sqrock.business@outlook.com" 
                             className={`text-sm hover:text-primary transition-colors ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}
                           >
-                            contact@sqrock.com
+                           sqrock.business@outlook.com
                           </a>
                         </div>
                       </div>
@@ -579,10 +579,10 @@ const GetQuotePage = () => {
                         <div>
                           <p className="font-medium">Phone</p>
                           <a 
-                            href="tel:+911234567890" 
+                            href="tel:+916378695548" 
                             className={`text-sm hover:text-primary transition-colors ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}
                           >
-                            +91 12345 67890
+                            +91 63786 95548
                           </a>
                         </div>
                       </div>

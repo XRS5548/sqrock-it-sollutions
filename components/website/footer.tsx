@@ -107,10 +107,10 @@ const Footer = () => {
                 <div>
                   <p className="text-sm font-medium">Email</p>
                   <a
-                    href="mailto:contact@sqrock.com"
+                    href="mailto:sqrock.business@outlook.com"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
-                    contact@sqrock.com
+                    sqrock.business@outlook.com
                   </a>
                 </div>
               </li>
@@ -119,10 +119,10 @@ const Footer = () => {
                 <div>
                   <p className="text-sm font-medium">Phone</p>
                   <a
-                    href="tel:+911234567890"
+                    href="tel:+916378695548"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
-                    +91 12345 67890
+                    +91 63786 95548
                   </a>
                 </div>
               </li>
