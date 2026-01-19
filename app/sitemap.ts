@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://acme.com' // 请将 acme.com 替换为你的实际域名
+  const baseUrl = 'https://www.sqrock.cloud' // 请将 acme.com 替换为你的实际域名
   const currentDate = new Date()
   
   return [
