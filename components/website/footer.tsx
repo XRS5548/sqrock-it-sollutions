@@ -19,6 +19,11 @@ const Footer = () => {
     { label: "Custom Software", href: "/services/custom-software" },
   ];
 
+  const legalLinks = [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms & Conditions", href: "/terms-and-conditions" },
+  ];
+
   const theme = useTheme()
 
   const socialLinks = [
@@ -44,7 +49,7 @@ const Footer = () => {
                 We build scalable, secure, and high-performance digital solutions.
               </p>
             </div>
-            
+
             <div className="space-y-4">
               <p className="text-sm font-medium">Connect with us</p>
               <div className="flex space-x-4">
@@ -145,11 +150,26 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground text-center md:text-left">
               © 2026 SQROCK IT Solutions. All rights reserved.
             </p>
+
+            {/* Legal Links */}
+            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="hover:text-primary transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
             <p className="text-sm text-muted-foreground flex items-center gap-1">
               Built with <span className="text-red-500">❤️</span> by SQROCK
             </p>
           </div>
         </div>
+
       </div>
     </footer>
   );
