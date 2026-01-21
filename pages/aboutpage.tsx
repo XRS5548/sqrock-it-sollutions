@@ -19,6 +19,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import Image from "next/image";
 
 const coreValues = [
   {
@@ -195,19 +196,25 @@ const AboutPage = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-border/50 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
-                      <span className="text-5xl font-bold text-white">SQ</span>
-                    </div>
-                    <h3 className="text-2xl font-bold mb-2">Building Digital Futures</h3>
-                    <p className="text-muted-foreground">Since 2025</p>
-                  </div>
-                </div>
-                <div className="absolute -top-8 -right-8 w-64 h-64 bg-gradient-to-bl from-primary/5 to-transparent rounded-full" />
-                <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-gradient-to-tr from-primary/5 to-transparent rounded-full" />
-              </div>
+              <div className="aspect-square rounded-2xl border border-border/50 overflow-hidden relative">
+  <Image
+    src="/story.png"
+    alt="SQROCK IT Solutions Story"
+    fill
+    className="object-cover"
+    priority
+  />
+
+  {/* Optional overlay (premium look) */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+
+  {/* Optional text on image */}
+  <div className="absolute bottom-6 left-6 right-6 text-white">
+    <h3 className="text-2xl font-bold">Building Digital Futures</h3>
+    <p className="text-sm opacity-90">Since 2025</p>
+  </div>
+</div>
+
             </motion.div>
           </div>
         </div>
