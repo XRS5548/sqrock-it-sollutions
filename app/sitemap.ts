@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.sqrock.cloud' // 请将 acme.com 替换为你的实际域名
   const currentDate = new Date()
-  
+
   return [
     // 首页
     {
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 1,
     },
-    
+
     // about 页面
     {
       url: `${baseUrl}/about`,
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    
+
     // contact 页面
     {
       url: `${baseUrl}/contact`,
@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    
+
     // get-started 页面
     {
       url: `${baseUrl}/get-started`,
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-    
+
     // getquote 页面
     {
       url: `${baseUrl}/getquote`,
@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    
+
     // pricing 页面
     {
       url: `${baseUrl}/pricing`,
@@ -52,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    
+
     // privacy-policy 页面
     {
       url: `${baseUrl}/privacy-policy`,
@@ -60,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.4,
     },
-    
+
     // services 页面
     {
       url: `${baseUrl}/services`,
@@ -68,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    
+
     // thank-you 页面
     {
       url: `${baseUrl}/thank-you`,
@@ -76,5 +76,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    {
+      url: `${baseUrl}/flutter-app-development`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    }
+
   ]
 }
