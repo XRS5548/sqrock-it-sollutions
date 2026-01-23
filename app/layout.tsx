@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/website/navbar";
 import Footer from "@/components/website/footer";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,31 @@ export default function RootLayout({
     
       <html lang="en" suppressHydrationWarning>
         <head />
+
+ <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-GV59SQHG3R"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GV59SQHG3R');
+          `}
+        </Script>
+
+        
+        <Script id="ga-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GV59SQHG3R');
+          `}
+        </Script>
+
+
         <body>
           <ThemeProvider
             attribute="class"
@@ -69,6 +95,8 @@ export default function RootLayout({
     }),
   }}
 />
+
+
 
       </html>
   );
