@@ -16,10 +16,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sqrock IT Solutions | Website Development & Digital Marketing",
-  description: "Professional Website Development, Web Design & SEO Services in India. Transform your digital presence with our expert IT solutions.",
-  keywords: ["Sqrock IT Solutions", "Website Development", "Web Design", "SEO Services", "Digital Marketing", "Software Development", "India IT Company"],
-};
+  title: {
+    default: "SQROCK Cloud",
+    template: "%s | SQROCK Cloud",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  description:
+    "SQROCK Cloud is an IT solutions company providing professional web development, app development, and digital solutions for businesses in India.",
+  authors: [{ name: "SQROCK Cloud" }],
+}
 
 export default function RootLayout({
   children,
@@ -43,6 +51,25 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </body>
+        <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "SQROCK Cloud",
+      url: "https://sqrock.cloud",
+      logo: "https://sqrock.cloud/logo/dark.png",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+91-6378695548",
+        contactType: "customer support",
+        areaServed: "IN",
+      },
+    }),
+  }}
+/>
+
       </html>
   );
 }

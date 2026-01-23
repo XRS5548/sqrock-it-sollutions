@@ -8,12 +8,23 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { ModeToggle } from "../Togglemod";
 import { useTheme } from "next-themes";
 import Logo from "../logo";
+import { usePathname, useRouter } from "next/navigation";
+
+
+  
+
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+
+  const pathname = usePathname()
+
+  if(pathname?.startsWith("/landings")){
+    return <></>
+  }
 
   const navItems = [
     { label: "Home", href: "/" },

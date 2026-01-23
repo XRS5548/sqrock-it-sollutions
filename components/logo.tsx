@@ -17,7 +17,7 @@ export default function Logo({w}:{w?:number}) {
   return (
     <img
       src={resolvedTheme === "dark" ? "/logo/dark.png" : "/logo/light.png"}
-      width={width}
+      width={width} height={80} loading="lazy"
       alt="SQROCK Logo"
     />
   )

@@ -81,6 +81,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/landings/web-development-service`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     }
 
   ]

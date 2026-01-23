@@ -3,14 +3,22 @@ import Link from "next/link";
 import { Twitter, Linkedin, Github, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { useTheme } from "next-themes";
 import Logo from "../logo";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+
+  const pathname = usePathname();
+  if(pathname?.startsWith("/landings")) return <></>
+
+
   const quickLinks = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
+
+  
 
   const services = [
     { label: "Web Development", href: "/services/web-development" },
