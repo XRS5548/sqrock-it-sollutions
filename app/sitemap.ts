@@ -1,11 +1,11 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.sqrock.cloud' // 请将 acme.com 替换为你的实际域名
+  const baseUrl = 'https://www.sqrock.cloud'
   const currentDate = new Date()
 
   return [
-    // 首页
+    // Home
     {
       url: baseUrl,
       lastModified: currentDate,
@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
 
-    // about 页面
+    // About
     {
       url: `${baseUrl}/about`,
       lastModified: currentDate,
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // contact 页面
+    // Contact
     {
       url: `${baseUrl}/contact`,
       lastModified: currentDate,
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
 
-    // get-started 页面
+    // Get Started
     {
       url: `${baseUrl}/get-started`,
       lastModified: currentDate,
@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
 
-    // getquote 页面
+    // Get Quote
     {
       url: `${baseUrl}/getquote`,
       lastModified: currentDate,
@@ -45,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // pricing 页面
+    // Pricing
     {
       url: `${baseUrl}/pricing`,
       lastModified: currentDate,
@@ -53,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // privacy-policy 页面
+    // Privacy Policy
     {
       url: `${baseUrl}/privacy-policy`,
       lastModified: currentDate,
@@ -61,7 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     },
 
-    // services 页面
+    // Services (main)
     {
       url: `${baseUrl}/services`,
       lastModified: currentDate,
@@ -69,25 +69,60 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // thank-you 页面
+    // Thank You
     {
       url: `${baseUrl}/thank-you`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+
+    // Flutter App Development
     {
       url: `${baseUrl}/flutter-app-development`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+
+    // Landings
     {
       url: `${baseUrl}/landings/web-development-service`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
-    }
+    },
 
+    // ✅ New: App Development Services
+    {
+      url: `${baseUrl}/app-development-services`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+
+    // ✅ New: Custom Software Development
+    {
+      url: `${baseUrl}/custom-software-development`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+
+    // ✅ New: UI/UX Design Services
+    {
+      url: `${baseUrl}/ui-ux-design-services`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+
+    // ✅ New: Web Development Services
+    {
+      url: `${baseUrl}/web-development-services`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ]
 }

@@ -579,10 +579,10 @@ const GetQuotePage = () => {
                         <div>
                           <p className="font-medium">Phone</p>
                           <a 
-                            href="tel:+916378695548" 
+                            href="tel:+918619819400" 
                             className={`text-sm hover:text-primary transition-colors ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}
                           >
-                            +91 63786 95548
+                            +91 86198 19400
                           </a>
                         </div>
                       </div>

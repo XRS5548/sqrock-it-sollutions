@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import { Twitter, Linkedin, Github, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Twitter, Linkedin, Github, Instagram, Mail, Phone, MapPin, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import Logo from "../logo";
 import { usePathname } from "next/navigation";
@@ -21,10 +21,10 @@ const Footer = () => {
   
 
   const services = [
-    { label: "Web Development", href: "/services/web-development" },
-    { label: "App Development", href: "/services/app-development" },
-    { label: "UI/UX Design", href: "/services/ui-ux-design" },
-    { label: "Custom Software", href: "/services/custom-software" },
+    { label: "Web Development", href: "/web-development-services" },
+    { label: "App Development", href: "/app-development-services" },
+    { label: "UI/UX Design", href: "/ui-ux-design-services" },
+    { label: "Custom Software", href: "/custom-software-development" },
   ];
 
   const legalLinks = [
@@ -35,8 +35,8 @@ const Footer = () => {
   const theme = useTheme()
 
   const socialLinks = [
-    { icon: Twitter, href: "https://twitter.com/sqrock", label: "Twitter" },
-    { icon: Linkedin, href: "https://linkedin.com/company/sqrock", label: "LinkedIn" },
+    { icon: X, href: "https://x.com/sqrockofficial", label: "X" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/sqrock-it-solutions/", label: "LinkedIn" },
     // { icon: Github, href: "https://github.com/sqrock", label: "GitHub" },
     { icon: Instagram, href: "https://instagram.com/sqrock.tech", label: "Instagram" },
   ];
@@ -132,10 +132,10 @@ const Footer = () => {
                 <div>
                   <p className="text-sm font-medium">Phone</p>
                   <a
-                    href="tel:+916378695548"
+                    href="tel:+918619819400"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
-                    +91 63786 95548
+                    +91 86198 19400
                   </a>
                 </div>
               </li>

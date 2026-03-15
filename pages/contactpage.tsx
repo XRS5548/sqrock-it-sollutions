@@ -34,10 +34,10 @@ const contactInfo = [
   {
     id: 2,
     title: "Phone",
-    content: "+91 63786 95548",
+    content: "+91 86198 19400",
     icon: Phone,
     color: "from-green-500 to-emerald-500",
-    href: "tel:+916378695548",
+    href: "tel:+918619819400",
   },
   {
     id: 3,
@@ -409,74 +409,7 @@ const formData = {
         </div>
       </section>
 
-      {/* 4. Map / Location Section */}
-    {/* 4. Map / Location Section - Simple Version */}
-<section ref={refs.map} className="py-24 bg-background">
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={inViews.map ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-10"
-    >
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-        Find Us Here
-      </h2>
-      <p className="text-lg text-muted-foreground">
-        Visit us or connect online for your IT solutions
-      </p>
-    </motion.div>
-
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={inViews.map ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ delay: 0.3 }}
-      className="max-w-6xl mx-auto"
-    >
-      <Card className="bg-card/40 backdrop-blur-sm border border-border/50 overflow-hidden">
-        <CardContent className="p-0">
-          <div className="relative">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d274.9448347669966!2d75.94065536052311!3d26.353825813410754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1769016493068!5m2!1sen!2sin"
-              width="100%"
-              height="500"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="SQROCK IT Solutions Location"
-            />
-            
-            {/* Overlay Info Card */}
-            <div className="absolute bottom-6 left-6 right-6 sm:left-auto sm:right-6 sm:w-80">
-              <Card className="bg-background/95 backdrop-blur-sm border-border/50">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    SQROCK IT Solutions
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Jaipur, Rajasthan, India
-                  </p>
-                  <Button asChild size="sm" className="w-full">
-                    <a 
-                      href="https://maps.google.com/?q=26.353825813410754,75.94065536052311"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open in Google Maps
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
-  </div>
-</section>
+      
 
 
 
@@ -505,7 +438,7 @@ const formData = {
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button asChild size="lg" className="px-10 py-6 text-lg">
-                <Link href="#form">
+                <Link href="/getquote">
                   Get Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
