@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/website/navbar";
 import Footer from "@/components/website/footer";
 import Script from "next/script";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -132,6 +133,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
                   <Navbar />
+                  <Toaster />
             
             {children}
             <Footer />
