@@ -124,5 +124,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/alpha2-interns`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly', // kyuki ye active campaign hai
+      priority: 0.9, // high priority (important landing page)
+    },
   ]
 }
