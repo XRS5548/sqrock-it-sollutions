@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Sqrock IT Solution",
     images: [
       {
-        url: "/banner.jpg",
+        url: "/banner.jpeg",
         width: 1200,
         height: 630,
         alt: "Official Banner for Alpha 2 Internship Program by Sqrock",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "Alpha 2 Internship Program - Free Internship by Sqrock",
     description:
       "Gain real-world experience and a certificate with the Alpha 2 Internship Program. Free for engineering students in India. #Internship #Tech #Career",
-    images: ["https://sqrock.cloud/banner.jpg"], // Absolute URL is better for Twitter
+    images: ["https://sqrock.cloud/banner.jpeg"], // Absolute URL is better for Twitter
     creator: "@sqrocksol", // Add Twitter handle
   },
 
@@ -77,7 +77,7 @@ export default function Alpha2Layout({
             "@type": "EducationalOrganization",
             name: "Sqrock IT Solution",
             url: "https://sqrock.cloud",
-            logo: "https://sqrock.cloud/banner.jpg",
+            logo: "https://sqrock.cloud/banner.jpeg",
             sameAs: [],
             contactPoint: {
               "@type": "ContactPoint",
