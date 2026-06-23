@@ -1,4 +1,4 @@
-import { pgTable, uuid, text, integer, timestamp } from 'drizzle-orm/pg-core'
+export * from './schema/index';
 
 export const users = pgTable('users', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -9,7 +9,9 @@ export const users = pgTable('users', {
   branch: text('branch').notNull(),
   year: integer('year').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
-})
+});
 
-export type User = typeof users.$inferSelect
-export type NewUser = typeof users.$inferInsert
+export type User = typeof users.$inferSelect;
+export type NewUser = typeof users.$inferInsert;
+
+import { pgTable, uuid, text, integer, timestamp } from 'drizzle-orm/pg-core';

@@ -8,6 +8,13 @@
       "when": 1775662547324,
       "tag": "0000_complex_valkyrie",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1781980740308,
+      "tag": "0001_platform_schema",
+      "breakpoints": true
     }
   ]
 }
